@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+void quicksort(int a[],int low,int high)
+{
+    if(low<high)
+    {
+        int s=low;
+        int e=high;
+        int pivot=(s+e)/2;
+
+        while(s<=e)
+        {
+            while(a[s]<a[pivot])
+            s++;
+            while(a[e]>a[pivot])
+            e--;
+            if(s<=e)
+            {
+                int temp=a[s];
+                a[s]=a[e];
+                a[e]=temp;
+                s++;
+                e--;
+            }
+        }
+
+        quicksort(a,low,e);
+        quicksort(a,s,high);
+    }
+}
+
+int main()
+{
+    int a[]={5,4,3,2,1};
+    quicksort(a,0,4);
+    for(int i=0;i<5;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    return 0;
+}
