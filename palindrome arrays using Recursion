@@ -1,0 +1,17 @@
+class HelloWorld {
+    
+    public static int check(int[] a,int i,int n){
+        if(i>=n)
+        return 1;
+        
+        if(a[i]!=a[n])
+        return -1;
+        
+        return(check(a,i+1,n-1));
+        
+    }
+    public static void main(String[] args) {
+        int[] a={1,2,2,1};
+        System.out.println(check(a,0,3));
+    }
+}
